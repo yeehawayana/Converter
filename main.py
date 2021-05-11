@@ -81,7 +81,13 @@ def temp_convert(self, low):
     to_convert = float(to_convert)
     has_errors = "no"
 
-    
+    # Check and Convert Fahrenheit
+    if low == -273 and to_convert >= low:
+      fahrenheit = (to_convert * 9/5) + 32
+      to_convert = self.round_it(to_convert)
+      fahrenheit = self.round_it(fahrenheit)
+      answer = "{} degrees C is {} degrees F".format(to_convert, fahrenheit)
+
     # Convert to F
 
     # Convert to C
