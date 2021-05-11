@@ -9,15 +9,14 @@ class Converter:
     background_color = "#ffff00"
 
     #Converter Frame
-    self.converter_frame =Frame(width=300, bg=background_color,
+    self.converter_frame =Frame(bg=background_color,
                                 pady=10)
     self.converter_frame.grid()
 
 #Temperature Converter Heading (row 0)
 self.temp_heading_label = Label(self.converter_frame,
                                 text="Temperature Converter",
-                                font="Arial 16 bold",
-                                bg=background_color,
+                                font="Arial 19 bold", bg=background_color,
                                 padx=10, pady=10)
 self.temp_heading_label.grid(row=0)
 
@@ -70,8 +69,8 @@ self.help_button = Button(self.hist_help_frame, font="Arial 12 bold",
                           text="Help", width=5)
 self.help_button_grid(row=0, column=1)
 
-def temp_convert(self, to):
-  print(to)
+def temp_convert(self, low):
+  print(low)
 
   error = "#ffafaf" # rose pink background for when entry box has errors
 
@@ -80,24 +79,22 @@ def temp_convert(self, to):
 
   try:
     to_convert = float(to_convert)
-    print("yay")
+    has_errors = "no"
 
- 
-  # Check amount is a valid number
+    
+    # Convert to F
 
-  # Convert to F
+    # Convert to C
 
-  # Convert to C
+    # Round!!
 
-  # Round!!
+    # Display answer
 
-  # Display answer
+    # Add Answer to list for History
 
-  # Add Answer to list for History
-
-  except ValueError:
-    self.converted_label.configure(text="Enter a number!!", fg="red")
-    self.to_convert_entry.configure(bg=error)
+    except ValueError:
+      self.converted_label.configure(text="Enter a number!!", fg="red")
+      self.to_convert_entry.configure(bg=error)
 
 if __name__ == "__main__":
   root = Tk()
