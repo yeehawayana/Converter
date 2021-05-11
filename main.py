@@ -88,6 +88,18 @@ def temp_convert(self, low):
       fahrenheit = self.round_it(fahrenheit)
       answer = "{} degrees C is {} degrees F".format(to_convert, fahrenheit)
 
+    # Check and convert Centigrade
+    elif low == -459 and to_convert >= low:
+      celsius = (to_convert - 32) * 5/9
+      to_convert = self.round_it(to_convert)
+      celsius = self.round_it(celsius)
+      answer = "{} degrees C is {} degrees F".format(to_convert, celsius)
+
+    else:
+      # Input is invalid (too cold)!!
+      answer = "Too Cold!"
+      has_errors = "yes"
+
     # Convert to F
 
     # Convert to C
