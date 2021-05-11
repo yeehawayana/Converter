@@ -100,14 +100,10 @@ def temp_convert(self, low):
       answer = "Too Cold!"
       has_errors = "yes"
 
-    # Convert to F
-
-    # Convert to C
-
-    # Round!!
-
     # Display answer
-
+    if has_errors == "no":
+      self.converted_label.configure(text=answer, fg="blue")
+      self.to_convert_entry.configure(bg=error)  
     # Add Answer to list for History
 
     except ValueError:
