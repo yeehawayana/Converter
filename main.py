@@ -73,6 +73,8 @@ self.help_button_grid(row=0, column=1)
 def temp_convert(self, to):
   print(to)
 
+  error = "#ffafaf" # rose pink background for when entry box has errors
+
   # Retrieve amount entered into Entry field
   to_convert = self.to_convert_entry.get()
 
@@ -80,8 +82,7 @@ def temp_convert(self, to):
     to_convert = float(to_convert)
     print("yay")
 
-  except ValueError:
-    print("oops")
+ 
   # Check amount is a valid number
 
   # Convert to F
@@ -93,6 +94,10 @@ def temp_convert(self, to):
   # Display answer
 
   # Add Answer to list for History
+
+  except ValueError:
+    self.converted_label.configure(text="Enter a number!!", fg="red")
+    self.to_convert_entry.configure(bg=error)
 
 if __name__ == "__main__":
   root = Tk()
