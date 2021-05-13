@@ -1,5 +1,5 @@
 from tkinter import *
-#from functools import partial # To prevent unwanted windows 
+from functools import partial  # To prevent unwanted windows 
 import random
 
 class Converter:
@@ -9,7 +9,8 @@ class Converter:
     background_color = "#ffff00"
 
     #Converter Frame
-    self.converter_frame =Frame(bg=background_color,
+    self.converter_frame =Frame(width=300, height=300,
+                                bg=background_color,
                                 pady=10)
     self.converter_frame.grid()
 
@@ -106,9 +107,9 @@ def temp_convert(self, low):
       self.to_convert_entry.configure(bg=error)  
     # Add Answer to list for History
 
-    except ValueError:
-      self.converted_label.configure(text="Enter a number!!", fg="red")
-      self.to_convert_entry.configure(bg=error)
+  except ValueError:
+    self.converted_label.configure(text="Enter a number!!", fg="red")
+    self.to_convert_entry.configure(bg=error)
 
 if __name__ == "__main__":
   root = Tk()
