@@ -26,12 +26,12 @@ class Converter:
                                         text="Type in the amount to be "
                                               "converter and then push "
                                               "one of the buttons below...",
-                                        font="Arial 10 italic", wrap=250,
+                                        font="Arial 10 italic", wrap=290,
                                         justify=LEFT, bg=background_color,
                                         padx=10, pady=10)
     self.temp_instructions_label.grid(row=1)
 
-    #Temperature entry bow (row 2) - CHECKED Convertor GUI Part 2 Video
+    #Temperature entry box (row 2) - CHECKED Convertor GUI Part 2 Video
     self.to_convert_entry = Entry(self.converter_frame, width=20,
                                   font="Arial 14 bold")
     self.to_convert_entry.grid(row=2)
@@ -54,10 +54,10 @@ class Converter:
     self.to_f_button.grid(row=0, column=1)
 
     #Answer label (row 4) # NEED TO CHECK CODE FROM HERE #
-    #self.converted_label = Label(self.converter_frame, font="Arial 14 bold",
-    #                             fg="purple", bg=background_color, pady=10,
-    #                             text="Conversion goes here")
-    #self.convertered_label.grid(row=4)
+    self.converted_label = Label(self.converter_frame, font="Arial 14 bold",
+                                 fg="purple", bg=background_color, pady=10,
+                                 text="Conversion goes here")
+    self.converted_label.grid(row=4)
 
     #History / Help button frame (row 5)
     self.hist_help_frame = Frame(self.converter_frame)
@@ -69,9 +69,9 @@ class Converter:
 
     self.help_button = Button(self.hist_help_frame, font="Arial 12 bold",
                                text="Help", width=5)
-    self.help_button_grid(row=0, column=1)
+    self.help_button.grid(row=0, column=1)
  
-  '''def temp_convert(self, low):
+  def temp_convert(self, low):
     print(low)
 
     error = "#ffafaf" # rose pink background for when entry box has errors
@@ -110,7 +110,14 @@ class Converter:
 
     except ValueError:
       self.converted_label.configure(text="Enter a number!!", fg="red")
-      self.to_convert_entry.configure(bg=error)'''
+      self.to_convert_entry.configure(bg=error)
+      
+    def round_it(self, to_round):
+      if to_round % 1 == 0:
+        rounded = int(to_round)
+      else:
+        rounded = round(to_round, 1)
+      return rounded
 
 if __name__ == "__main__":
   root = Tk()
