@@ -83,14 +83,14 @@ class Converter:
       to_convert = float(to_convert)
       has_errors = "no"
 
-      # Check and Convert Fahrenheit #LINE 89 ERROR
+      # Check and Convert Fahrenheit
       if low == -273 and to_convert >= low:
         fahrenheit = (to_convert * 9/5) + 32
         to_convert = self.round_it(to_convert)
         fahrenheit = self.round_it(fahrenheit)
         answer = "{} degrees C is {} degrees F".format(to_convert, fahrenheit)
 
-      # Check and convert Centigrade #LINE 96 ERROR
+      # Check and convert Centigrade
       elif low == -459 and to_convert >= low:
         celsius = (to_convert - 32) * 5/9
         to_convert = self.round_it(to_convert)
@@ -106,10 +106,6 @@ class Converter:
       if has_errors == "no":
         self.converted_label.configure(text=answer, fg="blue")
         self.to_convert_entry.configure(bg=error)  
-      else:
-          self.converted_label.configure(text=answer, fg="red")
-          self.to_convert_entry.configure(bg=error)
-
       # Add Answer to list for History
 
     except ValueError:
